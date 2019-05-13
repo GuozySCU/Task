@@ -1,0 +1,14 @@
+---
+title: Liverpool v.s. Barca
+author: G
+date: '2019-05-08'
+slug: liverpool-v-s-barca
+categories:
+  - R
+tags:
+  - football
+---
+## 当一个巴萨球迷好难
+输了球了，好惨，连续两年被逆转，我哭。
+到底是谁的锅？巴尔韦德？库蒂尼奥？
+长点心吧大爷们......
