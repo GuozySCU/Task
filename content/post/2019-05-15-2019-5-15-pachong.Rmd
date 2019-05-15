@@ -1,0 +1,25 @@
+---
+title: 2019/5/15 爬虫
+author: ''
+date: '2019-05-15'
+slug: 2019-5-15-pachong
+categories: []
+tags: []
+---
+# 爬取政府工作报告
+http://www.gov.cn/guowuyuan/2019-03/16/content_5374314.htm
+```{r}
+x<-1:10
+y<-21:30
+plot(x,y)
+
+```
+```{r}
+library(rvest)
+url <- "http://www.gov.cn/guowuyuan/2019-03/16/content_5374314.htm"
+web<-read_html(url,encoding="utf-8")
+position<-web %>% html_nodes("div.pages_content") %>% html_text()
+print(position)
+```
+
+
