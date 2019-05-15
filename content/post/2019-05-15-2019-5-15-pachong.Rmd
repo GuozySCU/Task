@@ -20,6 +20,15 @@ url <- "http://www.gov.cn/guowuyuan/2019-03/16/content_5374314.htm"
 web<-read_html(url,encoding="utf-8")
 position<-web %>% html_nodes("div.pages_content") %>% html_text()
 print(position)
+library(jiebaR)
+engine_s<-worker()#初始化分词引擎并加载停用词。
+seg<-segment(position,engine_s)#分词
+f<-freq(seg) #统计词频
+f<-f[order(f[2],decreasing=TRUE),] 
+hist(table(f))
+library(wordcloud2)#加载包
+f2<-f[1:150,]     
+wordcloud2(f2, size = 0.8 ,shape='star') 
 ```
 
 
