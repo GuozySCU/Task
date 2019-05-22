@@ -1,0 +1,25 @@
+---
+title: 'soccer data '
+author: Ziyu GUO
+date: '2019-05-22'
+slug: soccer-data
+categories:
+  - blog
+tags:
+  - football
+---
+## 某场比赛数据爬取
+```{r}
+library(RCurl)
+library(XML)
+i=10854899 #比赛编号
+url <- sprintf('https://g.hupu.com/soccer/data_%d.html',i)
+temp <- getURL(url,.encoding='utf-8')
+doc <-htmlParse(temp)
+players <- readHTMLTable(doc)
+home <- players$table_home_players_stats
+away <- players$table_away_players_stats
+print(home)
+print(away)
+```
+
