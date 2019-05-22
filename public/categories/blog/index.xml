@@ -6,10 +6,19 @@
     <description>Recent content in blog on Marco&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>soccer data </title>
+      <link>/2019/05/22/soccer-data/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/05/22/soccer-data/</guid>
+      <description>某场比赛数据爬取library(RCurl)## 载入需要的程辑包：bitopslibrary(XML)i=10854899 #比赛编号url &amp;lt;- sprintf(&amp;#39;https://g.hupu.com/soccer/data_%d.html&amp;#39;,i)temp &amp;lt;- getURL(url,.encoding=&amp;#39;utf-8&amp;#39;)doc &amp;lt;-htmlParse(temp)players &amp;lt;- readHTMLTable(doc)home &amp;lt;- players$table_home_players_statsaway &amp;lt;- players$table_away_players_statsprint(home)## 位置 球员名 出场 时间 进球 助攻 射门 射正 射正率 黄牌 红牌## 1 门将 乌尔赖希 首发 90&amp;#39; 0 0 0 0 0% 0 0## 2 后卫 胡梅尔斯 62&amp;#39; 换下 62&amp;#39; 0 0 1 1 100% 0 0## 3 后卫 阿拉巴 首发 90&amp;#39; 0 0 0 0 0% 0 0## 4 后卫 聚勒 首发 90&amp;#39; 1 0 1 1 100% 0 0## 5 后卫 基米希 首发 90&amp;#39; 0 0 0 0 0% 0 0## 6 中场 里贝里 77&amp;#39; 换下 77&amp;#39; 0 0 0 0 0% 0 0## 7 中场 比达尔 首发 90&amp;#39; 0 1 1 0 0% 1 0## 8 中场 鲁迪 首发 90&amp;#39; 0 1 0 0 0% 0 0## 9 中场 托利索 首发 90&amp;#39; 1 0 4 3 75% 0 0## 10 前锋 穆勒 61&amp;#39; 换下 61&amp;#39; 0 0 1 1 100% 0 0## 11 前锋 莱万多夫斯基 首发 90&amp;#39; 1 0 3 1 33% 0 0## 12 后卫 拉菲尼亚 62&amp;#39; 出场 28&amp;#39; 0 0 0 0 0% 0 0## 13 中场 罗本 61&amp;#39; 出场 29&amp;#39; 0 0 1 1 100% 0 0## 14 中场 科曼 77&amp;#39; 出场 13&amp;#39; 0 0 1 0 0% 0 0## 15 门将 弗吕希特尔 替补 0&amp;#39; 0 0 0 0 0% 0 0## 16 后卫 弗里德尔 替补 0&amp;#39; 0 0 0 0 0% 0 0## 17 中场 桑谢斯 替补 0&amp;#39; 0 0 0 0 0% 0 0## 18 前锋 潘托维奇 替补 0&amp;#39; 0 0 0 0 0% 0 0## 19 总计 3 2 13 8 62% 1 0## 犯规 被犯 越位 扑救## 1 0 0 0 3## 2 2 0 0 0## 3 1 0 0 0## 4 0 1 0 0## 5 0 2 0 0## 6 1 5 0 0## 7 2 0 0 0## 8 0 0 0 0## 9 2 4 0 0## 10 1 0 0 0## 11 1 2 3 0## 12 2 1 0 0## 13 0 1 1 0## 14 1 0 1 0## 15 0 0 0 0## 16 0 0 0 0## 17 0 0 0 0## 18 0 0 0 0## 19 13 16 5 3print(away)## 位置 球员名 出场 时间 进球 助攻 射门 射正 射正率 黄牌 红牌## 1 门将 莱诺 首发 90&amp;#39; 0 0 0 0 0% 0 0## 2 后卫 斯文-本德 45&amp;#39; 换下 45&amp;#39; 0 0 0 0 0% 0 0## 3 后卫 约纳坦-塔 首发 90&amp;#39; 0 0 0 0 0% 0 0## 4 后卫 文德尔 首发 90&amp;#39; 0 0 2 0 0% 0 0## 5 后卫 亨里希斯 首发 90&amp;#39; 0 0 0 0 0% 0 0## 6 中场 穆罕默迪 46&amp;#39; 换下 46&amp;#39; 1 0 2 2 100% 0 0## 7 中场 贝拉拉比 首发 90&amp;#39; 0 0 6 0 0% 0 0## 8 中场 多米尼克-科尔 首发 90&amp;#39; 0 0 3 0 0% 1 0## 9 中场 阿朗吉斯 61&amp;#39; 换下 61&amp;#39; 0 0 0 0 0% 1 0## 10 前锋 福兰德 首发 90&amp;#39; 0 0 1 1 100% 0 0## 11 前锋 利昂-贝利 45&amp;#39; 换下 45&amp;#39; 0 0 1 0 0% 0 0## 12 后卫 德拉戈维奇 45&amp;#39; 出场 45&amp;#39; 0 0 0 0 0% 0 0## 13 中场 坎普尔 61&amp;#39; 出场 29&amp;#39; 0 0 1 0 0% 0 0## 14 门将 厄兹詹 替补 0&amp;#39; 0 0 0 0 0% 0 0## 15 前锋 布兰特 46&amp;#39; 出场 44&amp;#39; 0 1 3 1 33% 0 0## 16 中场 鲍姆加特林格 替补 0&amp;#39; 0 0 0 0 0% 0 0## 17 中场 尤尔琴科 替补 0&amp;#39; 0 0 0 0 0% 0 0## 18 前锋 波赫扬帕洛 替补 0&amp;#39; 0 0 0 0 0% 0 0## 19 总计 1 1 19 4 21% 2 0## 犯规 被犯 越位 扑救## 1 0 0 0 5## 2 0 1 0 0## 3 2 1 0 0## 4 1 1 0 0## 5 0 0 0 0## 6 2 2 0 0## 7 1 1 1 0## 8 3 1 0 0## 9 2 2 0 0## 10 2 0 0 0## 11 2 0 0 0## 12 1 1 0 0## 13 0 0 0 0## 14 0 0 0 0## 15 1 1 0 0## 16 0 0 0 0## 17 0 0 0 0## 18 0 0 0 0## 19 17 11 1 5</description>
+    </item>
     
     <item>
       <title>Cech talks about the celebration of Suarez</title>
