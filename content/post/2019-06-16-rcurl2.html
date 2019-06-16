@@ -1,0 +1,30 @@
+---
+title: Grabing photos by rvest!
+author: Ziyu Guo
+date: '2019-06-16'
+slug: rcurl2
+categories:
+  - R
+tags: []
+---
+
+
+
+<p>利用rvest包实现对网页图片的爬取</p>
+<pre class="r"><code>#加载需要用的 downloader包和 rvest包
+library(downloader)
+library(rvest)</code></pre>
+<pre><code>## 载入需要的程辑包：xml2</code></pre>
+<pre class="r"><code>#确定网页
+url&lt;-&quot;https://www.zhihu.com/question/27541714/answer/194510021&quot;
+link&lt;- read_html(url)%&gt;% html_nodes(&quot;div.RichContent-inner&gt;span&quot;)%&gt;%html_nodes(&quot;img&quot;)%&gt;%html_attr(&quot;data-original&quot;)%&gt;%na.omit 
+link&lt;-link[seq(1,length(link),by=2)]                 #?޳???Ч??ַ
+Name&lt;-sub(&quot;https://pic\\d.zhimg.com/v2-&quot;,&quot;&quot;,link)    #??ȡͼƬ????
+dir.create(&quot;C://R/Task/zhihu&quot;)             #创建临时存储区域</code></pre>
+<pre><code>## Warning in dir.create(&quot;C://R/Task/zhihu&quot;): &#39;C:\\R\Task\zhihu&#39;已存在</code></pre>
+<pre class="r"><code>setwd(&quot;C://R/Task/zhihu&quot;)                  #确定临时存储区域
+for(i in 1:length(link)){
+  download(link[i],Name[i], mode = &quot;wb&quot;)
+}
+#批量下载</code></pre>
+<p>当程序运行完后，图片就自动保存在存储区域了哈哈哈哈哈！</p>

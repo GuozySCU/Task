@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.55.4" />
+
+
+<title>Grabing photos by rvest! - Marco&#39;s blog</title>
+<meta property="og:title" content="Grabing photos by rvest! - Marco&#39;s blog">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/gzzy.jpg"
+         width="65"
+         height="65"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">Contact Me</a></li>
+    
+    <li><a href="https://github.com/GuozySCU">GitHub</a></li>
+    
+    <li><a href="https://www.jianshu.com/u/f6dd913dbbf4">JianShu</a></li>
+    
+    <li><a href="/2019-05-13-projects.md/">Projects</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Grabing photos by rvest!</h1>
+
+    
+    <span class="article-date">2019-06-16</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>利用rvest包实现对网页图片的爬取</p>
+<pre class="r"><code>#加载需要用的 downloader包和 rvest包
+library(downloader)
+library(rvest)</code></pre>
+<pre><code>## 载入需要的程辑包：xml2</code></pre>
+<pre class="r"><code>#确定网页
+url&lt;-&quot;https://www.zhihu.com/question/27541714/answer/194510021&quot;
+link&lt;- read_html(url)%&gt;% html_nodes(&quot;div.RichContent-inner&gt;span&quot;)%&gt;%html_nodes(&quot;img&quot;)%&gt;%html_attr(&quot;data-original&quot;)%&gt;%na.omit 
+link&lt;-link[seq(1,length(link),by=2)]                 #?޳???Ч??ַ
+Name&lt;-sub(&quot;https://pic\\d.zhimg.com/v2-&quot;,&quot;&quot;,link)    #??ȡͼƬ????
+dir.create(&quot;C://R/Task/zhihu&quot;)             #创建临时存储区域</code></pre>
+<pre><code>## Warning in dir.create(&quot;C://R/Task/zhihu&quot;): &#39;C:\\R\Task\zhihu&#39;已存在</code></pre>
+<pre class="r"><code>setwd(&quot;C://R/Task/zhihu&quot;)                  #确定临时存储区域
+for(i in 1:length(link)){
+  download(link[i],Name[i], mode = &quot;wb&quot;)
+}
+#批量下载</code></pre>
+<p>当程序运行完后，图片就自动保存在存储区域了哈哈哈哈哈！</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

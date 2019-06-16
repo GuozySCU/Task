@@ -1,0 +1,28 @@
+---
+title: Grabing photos by rvest!
+author: Ziyu Guo
+date: '2019-06-16'
+slug: rcurl2
+categories:
+  - R
+tags: []
+---
+利用rvest包实现对网页图片的爬取
+```{r}
+#加载需要用的 downloader包和 rvest包
+library(downloader)
+library(rvest)
+#确定网页
+url<-"https://www.zhihu.com/question/27541714/answer/194510021"
+link<- read_html(url)%>% html_nodes("div.RichContent-inner>span")%>%html_nodes("img")%>%html_attr("data-original")%>%na.omit 
+link<-link[seq(1,length(link),by=2)]                 #?޳???Ч??ַ
+Name<-sub("https://pic\\d.zhimg.com/v2-","",link)    #??ȡͼƬ????
+dir.create("C://R/Task/zhihu")             #创建临时存储区域
+setwd("C://R/Task/zhihu")                  #确定临时存储区域
+for(i in 1:length(link)){
+  download(link[i],Name[i], mode = "wb")
+}
+#批量下载
+```
+当程序运行完后，图片就自动保存在存储区域了哈哈哈哈哈！
+
