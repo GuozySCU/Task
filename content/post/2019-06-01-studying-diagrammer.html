@@ -1,0 +1,94 @@
+---
+title: Studying DiagrammeR!
+author: Ziyu Guo
+date: '2019-06-01'
+slug: studying-diagrammer
+categories:
+  - R
+tags: []
+---
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/viz/viz.js"></script>
+<link href="/rmarkdown-libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/grViz-binding/grViz.js"></script>
+<script src="/rmarkdown-libs/d3/d3.min.js"></script>
+<script src="/rmarkdown-libs/dagre/dagre-d3.min.js"></script>
+<link href="/rmarkdown-libs/mermaid/dist/mermaid.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/mermaid/dist/mermaid.slim.min.js"></script>
+<script src="/rmarkdown-libs/chromatography/chromatography.js"></script>
+<script src="/rmarkdown-libs/DiagrammeR-binding/DiagrammeR.js"></script>
+
+
+<p>今天来学习一下怎么用DiagrammeR画流程图吧
+（后来在网上发现，似乎R还有一个diagram包也可以用来画流程图）
+代码↓</p>
+<pre class="r"><code>#先画一个正常的足球比赛流程
+library(DiagrammeR)
+grViz(&quot;
+digraph flowchart {
+# node definitions with substituted label text
+node [fontname = Helvetica, shape = rectangle] 
+tab1 [label = &#39;@@1&#39;]
+tab2 [label = &#39;@@2&#39;]
+tab3 [label = &#39;@@3&#39;]
+tab4 [label = &#39;@@4&#39;]
+tab5 [label = &#39;@@5&#39;]
+# edge definitions with the node IDs
+tab1 -&gt; tab2 -&gt; tab3 -&gt; tab4 -&gt; tab5;
+}
+[1]: &#39;足球比赛&#39;
+[2]: &#39;上半场&#39;
+[3]: &#39;中场&#39;
+[4]: &#39;下半场&#39;
+[5]: &#39;结束&#39;
+&quot;)</code></pre>
+<p><div id="htmlwidget-1" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"\ndigraph flowchart {\n# node definitions with substituted label text\nnode [fontname = Helvetica, shape = rectangle] \ntab1 [label = \"足球比赛\"]\ntab2 [label = \"上半场\"]\ntab3 [label = \"中场\"]\ntab4 [label = \"下半场\"]\ntab5 [label = \"结束\"]\n# edge definitions with the node IDs\ntab1 -> tab2 -> tab3 -> tab4 -> tab5;\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+再画一个淘汰赛的流程图吧！</p>
+<pre class="r"><code>library(DiagrammeR)
+grViz(&quot;
+digraph flowchart {
+# node definitions with substituted label text
+node [fontname = Helvetica, shape = rectangle] 
+tab1 [label = &#39;@@1&#39;]
+tab2 [label = &#39;@@2&#39;]
+tab3 [label = &#39;@@3&#39;]
+tab4 [label = &#39;@@4&#39;]
+tab5 [label = &#39;@@5&#39;]
+tab6 [label = &#39;@@6&#39;]
+tab7 [label = &#39;@@7&#39;]
+tab8 [label = &#39;@@8&#39;]
+# edge definitions with the node IDs
+tab1 -&gt; tab2 -&gt; tab3;
+tab3 -&gt; tab5;
+tab3 -&gt; tab4 -&gt; tab6;
+tab6 -&gt; tab7;
+tab6 -&gt; tab8
+
+}
+[1]: &#39;足球比赛&#39;
+[2]: &#39;常规赛&#39;
+[3]: &#39;平局&#39;
+[4]: &#39;加时&#39;
+[5]: &#39;结束，赢的是冠军&#39;
+[6]: &#39;平局&#39;
+[7]: &#39;结束&#39;
+[8]: &#39;点球大战&#39;
+
+&quot;)</code></pre>
+<p><div id="htmlwidget-2" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"diagram":"\ndigraph flowchart {\n# node definitions with substituted label text\nnode [fontname = Helvetica, shape = rectangle] \ntab1 [label = \"足球比赛\"]\ntab2 [label = \"常规赛\"]\ntab3 [label = \"平局\"]\ntab4 [label = \"加时\"]\ntab5 [label = \"结束，赢的是冠军\"]\ntab6 [label = \"平局\"]\ntab7 [label = \"结束\"]\ntab8 [label = \"点球大战\"]\n# edge definitions with the node IDs\ntab1 -> tab2 -> tab3;\ntab3 -> tab5;\ntab3 -> tab4 -> tab6;\ntab6 -> tab7;\ntab6 -> tab8\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+hahaha还能用别的方式来再做一次</p>
+<pre class="r"><code>mermaid(&quot;
+graph LR
+        A(足球比赛)--&gt;B[常规赛]
+        B--&gt;C{平局1}
+        C--&gt;D[结束1]
+        C--&gt;E[加时赛]
+        E--&gt;F{平局2}
+        F--&gt;G[结束2]
+        F--&gt;H[点球大战]
+        &quot;)</code></pre>
+<div id="htmlwidget-3" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"diagram":"\ngraph LR\n        A(足球比赛)-->B[常规赛]\n        B-->C{平局1}\n        C-->D[结束1]\n        C-->E[加时赛]\n        E-->F{平局2}\n        F-->G[结束2]\n        F-->H[点球大战]\n        "},"evals":[],"jsHooks":[]}</script>

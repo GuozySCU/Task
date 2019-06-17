@@ -22,6 +22,16 @@
     </item>
     
     <item>
+      <title>Studying DiagrammeR!</title>
+      <link>/2019/06/01/studying-diagrammer/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/01/studying-diagrammer/</guid>
+      <description>今天来学习一下怎么用DiagrammeR画流程图吧（后来在网上发现，似乎R还有一个diagram包也可以用来画流程图）代码↓
+#先画一个正常的足球比赛流程library(DiagrammeR)grViz(&amp;quot;digraph flowchart {# node definitions with substituted label textnode [fontname = Helvetica, shape = rectangle] tab1 [label = &amp;#39;@@1&amp;#39;]tab2 [label = &amp;#39;@@2&amp;#39;]tab3 [label = &amp;#39;@@3&amp;#39;]tab4 [label = &amp;#39;@@4&amp;#39;]tab5 [label = &amp;#39;@@5&amp;#39;]# edge definitions with the node IDstab1 -&amp;gt; tab2 -&amp;gt; tab3 -&amp;gt; tab4 -&amp;gt; tab5;}[1]: &amp;#39;足球比赛&amp;#39;[2]: &amp;#39;上半场&amp;#39;[3]: &amp;#39;中场&amp;#39;[4]: &amp;#39;下半场&amp;#39;[5]: &amp;#39;结束&amp;#39;&amp;quot;){&#34;</description>
+    </item>
+    
+    <item>
       <title>soccer data </title>
       <link>/2019/05/22/soccer-data/</link>
       <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>

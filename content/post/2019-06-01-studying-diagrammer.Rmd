@@ -1,0 +1,83 @@
+---
+title: Studying DiagrammeR!
+author: Ziyu Guo
+date: '2019-06-01'
+slug: studying-diagrammer
+categories:
+  - R
+tags: []
+---
+今天来学习一下怎么用DiagrammeR画流程图吧
+（后来在网上发现，似乎R还有一个diagram包也可以用来画流程图）
+代码↓
+```{r}
+#先画一个正常的足球比赛流程
+library(DiagrammeR)
+grViz("
+digraph flowchart {
+# node definitions with substituted label text
+node [fontname = Helvetica, shape = rectangle] 
+tab1 [label = '@@1']
+tab2 [label = '@@2']
+tab3 [label = '@@3']
+tab4 [label = '@@4']
+tab5 [label = '@@5']
+# edge definitions with the node IDs
+tab1 -> tab2 -> tab3 -> tab4 -> tab5;
+}
+[1]: '足球比赛'
+[2]: '上半场'
+[3]: '中场'
+[4]: '下半场'
+[5]: '结束'
+")
+
+```
+再画一个淘汰赛的流程图吧！
+```{r}
+library(DiagrammeR)
+grViz("
+digraph flowchart {
+# node definitions with substituted label text
+node [fontname = Helvetica, shape = rectangle] 
+tab1 [label = '@@1']
+tab2 [label = '@@2']
+tab3 [label = '@@3']
+tab4 [label = '@@4']
+tab5 [label = '@@5']
+tab6 [label = '@@6']
+tab7 [label = '@@7']
+tab8 [label = '@@8']
+# edge definitions with the node IDs
+tab1 -> tab2 -> tab3;
+tab3 -> tab5;
+tab3 -> tab4 -> tab6;
+tab6 -> tab7;
+tab6 -> tab8
+
+}
+[1]: '足球比赛'
+[2]: '常规赛'
+[3]: '平局'
+[4]: '加时'
+[5]: '结束，赢的是冠军'
+[6]: '平局'
+[7]: '结束'
+[8]: '点球大战'
+
+")
+```
+hahaha还能用别的方式来再做一次
+```{r}
+mermaid("
+graph LR
+        A(足球比赛)-->B[常规赛]
+        B-->C{平局1}
+        C-->D[结束1]
+        C-->E[加时赛]
+        E-->F{平局2}
+        F-->G[结束2]
+        F-->H[点球大战]
+        ")
+```
+
