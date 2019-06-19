@@ -1,0 +1,47 @@
+---
+title: Studying ggplot2!
+author: Ziyu GUO
+date: '2019-06-13'
+slug: studying-ggplot2
+categories:
+  - R
+tags: []
+---
+来学习ggplot2,以ggplot2包自带的mpg数据集为数据
+
+* 散点图
+```{r}
+library(ggplot2)
+mpg
+#画黑白散点图
+a<-ggplot(mpg,aes(x=displ,y=hwy))
+a+geom_point()+theme_classic()
+#画彩色散点图
+ggplot(mpg,aes(x=displ,y=hwy,colour=class))+geom_point()+theme_classic()
+#或者单一颜色的散点图
+a+geom_point(colour="red")+theme_classic()
+#在黑白图上添加一条平滑的曲线
+#曲线周围的灰色部分是置信区间，如果不需要标注标准误差可加入stat_smooth(se=FALSE)参数去掉
+a+theme_classic()+geom_point()+stat_smooth()
+#对散点图进行分组展示，添加facet_wrap()函数
+ggplot(mpg,aes(x=displ,y=hwy,colour=class))+geom_point()+theme_classic()+facet_wrap(~class)
+```
+
+* 箱线图
+```{r}
+ggplot(mpg, aes(drv, hwy, fill=drv))+geom_boxplot()+theme_bw()
+#加入扰动点图
+ggplot(mpg, aes(drv, hwy, fill=drv))+geom_boxplot()+theme_classic()+geom_point(position = position_jitterdodge())+scale_fill_brewer(palette = "Set2")
+#小提琴图
+ggplot(mpg, aes(drv, hwy, fill=drv))+geom_violin()
+
+```
+
+* 直方图和密度曲线图
+```{r}
+ggplot(mpg, aes(hwy)) + geom_histogram(binwidth = 0.6)
+#密度曲线图
+ggplot(mpg, aes(displ, colour = drv)) + geom_freqpoly(binwidth = 0.5)
+```
+
+然后就能自己分析了，我就不分析了- -
