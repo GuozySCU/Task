@@ -1,0 +1,31 @@
+---
+title: Time series
+author: Ziyu Guo
+date: '2019-06-27'
+slug: time-series
+categories:
+  - R
+tags: []
+---
+建一个时间序列函数
+```{r}
+timeSerise<-function(x,mon=TRUE){
+  if(as.Date(x)>as.Date("1949-09-02")){
+    xlt<-as.POSIXlt(as.Date(x))
+    xla<-as.POSIXlt(as.Date("1945-09-02"))
+    if(mon){
+      result<-paste("结果是",xlt$mon-xla$mon)
+    }else{
+      result<-paste("结果是",xlt$year-xla$year)
+    }
+    print(result)
+  }else{
+    print("输入日期小于二战胜利日期，重新输吧")
+  }
+}
+#函数功能是计算输入日期与二战胜利日期的年份差或者月份差，输入形式必须为“YYYY-MM-DD”，而且输入日期必须比1945-09-02要晚，否则会跳出错误信息
+timeSerise("2019-06-27",mon=FALSE)
+timeSerise("1999-12-11",mon=TRUE)
+timeSerise("1800-01-02")
+```
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.55.4" />
+
+
+<title>Time series - Marco&#39;s blog</title>
+<meta property="og:title" content="Time series - Marco&#39;s blog">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/gzzy.jpg"
+         width="65"
+         height="65"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">Contact Me</a></li>
+    
+    <li><a href="https://github.com/GuozySCU">GitHub</a></li>
+    
+    <li><a href="https://www.jianshu.com/u/f6dd913dbbf4">JianShu</a></li>
+    
+    <li><a href="/2019-05-13-projects.md/">Projects</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Time series</h1>
+
+    
+    <span class="article-date">2019-06-27</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>建一个时间序列函数</p>
+<pre class="r"><code>timeSerise&lt;-function(x,mon=TRUE){
+  if(as.Date(x)&gt;as.Date(&quot;1949-09-02&quot;)){
+    xlt&lt;-as.POSIXlt(as.Date(x))
+    xla&lt;-as.POSIXlt(as.Date(&quot;1945-09-02&quot;))
+    if(mon){
+      result&lt;-paste(&quot;结果是&quot;,xlt$mon-xla$mon)
+    }else{
+      result&lt;-paste(&quot;结果是&quot;,xlt$year-xla$year)
+    }
+    print(result)
+  }else{
+    print(&quot;输入日期小于二战胜利日期，重新输吧&quot;)
+  }
+}
+#函数功能是计算输入日期与二战胜利日期的年份差或者月份差，输入形式必须为“YYYY-MM-DD”，而且输入日期必须比1945-09-02要晚，否则会跳出错误信息
+timeSerise(&quot;2019-06-27&quot;,mon=FALSE)</code></pre>
+<pre><code>## [1] &quot;结果是 74&quot;</code></pre>
+<pre class="r"><code>timeSerise(&quot;1999-12-11&quot;,mon=TRUE)</code></pre>
+<pre><code>## [1] &quot;结果是 3&quot;</code></pre>
+<pre class="r"><code>timeSerise(&quot;1800-01-02&quot;)</code></pre>
+<pre><code>## [1] &quot;输入日期小于二战胜利日期，重新输吧&quot;</code></pre>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

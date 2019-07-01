@@ -6,10 +6,20 @@
     <description>Recent content on Marco&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Time series</title>
+      <link>/2019/06/27/time-series/</link>
+      <pubDate>Thu, 27 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/27/time-series/</guid>
+      <description>建一个时间序列函数
+timeSerise&amp;lt;-function(x,mon=TRUE){if(as.Date(x)&amp;gt;as.Date(&amp;quot;1949-09-02&amp;quot;)){xlt&amp;lt;-as.POSIXlt(as.Date(x))xla&amp;lt;-as.POSIXlt(as.Date(&amp;quot;1945-09-02&amp;quot;))if(mon){result&amp;lt;-paste(&amp;quot;结果是&amp;quot;,xlt$mon-xla$mon)}else{result&amp;lt;-paste(&amp;quot;结果是&amp;quot;,xlt$year-xla$year)}print(result)}else{print(&amp;quot;输入日期小于二战胜利日期，重新输吧&amp;quot;)}}#函数功能是计算输入日期与二战胜利日期的年份差或者月份差，输入形式必须为“YYYY-MM-DD”，而且输入日期必须比1945-09-02要晚，否则会跳出错误信息timeSerise(&amp;quot;2019-06-27&amp;quot;,mon=FALSE)## [1] &amp;quot;结果是 74&amp;quot;timeSerise(&amp;quot;1999-12-11&amp;quot;,mon=TRUE)## [1] &amp;quot;结果是 3&amp;quot;timeSerise(&amp;quot;1800-01-02&amp;quot;)## [1] &amp;quot;输入日期小于二战胜利日期，重新输吧&amp;quot;</description>
+    </item>
     
     <item>
       <title>Grabing photos by rvest!</title>
