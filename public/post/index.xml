@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Marco&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My class summarize</title>
+      <link>/2019/07/01/my-class-summarize/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/07/01/my-class-summarize/</guid>
+      <description>写在期末 一学期，博客从0-1，有可能的话我也希望可以继续把博客更新下去。 博客包括了一些文字的爬虫，图片的爬虫，表格的爬虫，ggplot2画图，时间序列和diagrammeR的流程图，加上期末使用bookdown完成“智慧物流”标准的构架，这学期所学的基本内容就已经完成了。 感谢这门课程带我走进了R语言，虽然我经常被他搞的抓耳挠腮，脾气火爆，不知所措，但我还是渐渐感受到了数据分析处理的魅力。在这样一个万事万物依靠数据连接的时代，作为信息资源管理专业的学生理应掌握一些实操的技能，这门课程算是提供了这么一个端口。当然，包括markdown的应用，git的应用和一些互联网通信的前沿知识也让我开了不少眼界。 有时候会觉得课程内容太多，很难跟上，加上老师太高估我们实力了hhhhh，包括作业在内的一些东西还是很有压力的，但一个学期下来回看自己的收获还是很满足的。以后也要继续加油鸭！</description>
+    </item>
     
     <item>
       <title>Time series</title>
